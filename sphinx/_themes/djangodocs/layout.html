@@ -44,7 +44,8 @@
         <a title="Home page" href="{{ pathto('index') }}">Home</a> {{ reldelim2 }}
         {% if project == "NAO Software Documentation" %}
           <a title="Site map" href="{{ pathto('contents') }}">Site map</a> {{ reldelim2 }}
-        {% endif %}
+        {% endif %} {{reldelim2}}
+        <a title="Search" href="{{ pathto('search') }}">Search</a>
         <a title="Site map" href="{{ pathto('genindex') }}">Index</a>
         {% if project != "NAO Software Documentation" %}
         {{ reldelim2 }}
