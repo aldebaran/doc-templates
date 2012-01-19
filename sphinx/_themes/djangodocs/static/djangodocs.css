@@ -63,7 +63,7 @@ div.figure { text-align: center; }
 div.figure p.caption { font-size:1em; margin-top:0; margin-bottom:1.5em; color: #555;}
 hr { color:#ccc; background-color:#ccc; height:1px; border:0; }
 p, ul, dl { margin-top:.6em; margin-bottom:1em; padding-bottom: 0.1em;}
-#yui-main div.yui-b img { max-width: 50em; margin-left: auto; margin-right: auto; display: block; }
+#yui-main div.yui-b img { max-width: 50em; margin-left: auto; margin-right: auto; display: block; vertical-align: middle; }
 caption { font-size:1em; font-weight:bold; margin-top:0.5em; margin-bottom:0.5em; margin-left: 2px; text-align: center; }
 blockquote { padding: 0 1em; margin: 1em 0; font:125%/1.2em "Trebuchet MS", sans-serif; color:#234f32; border-left:2px solid #94da3a; }
 strong { font-weight: bold; }
@@ -86,7 +86,7 @@ ul.toc ul { margin-left:.6em; }
 ul.toc ul li { list-style-type:square; }
 ul.toc ul ul li { list-style-type:disc; }
 ul.linklist li, ul.toc li { list-style-type:none; }
-dt { margin-top:.5em; font-size:1.1em; }
+dt { margin-top:.5em; font-size:1.1em; font-weight: bold; }}
 dd { margin-bottom:.8em; }
 ol.toc { margin-bottom: 2em; }
 ol.toc li { font-size:125%; padding: .5em; line-height:1.2em; clear: right; }
