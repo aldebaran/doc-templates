@@ -42,11 +42,20 @@
       <h1><a href="{{ pathto('index') }}">{{ docstitle }}</a></h1>
       <div id="global-nav">
         <a title="Home page" href="{{ pathto('index') }}">Home</a>
-        {% if project == "NAO Software" %} {{ reldelim2 }}
-          <a title="Site map" href="{{ pathto('contents') }}">Site map</a>
-        {% endif %} {{reldelim2}}
-        <a title="Search" href="{{ pathto('search') }}">Search</a> {{ reldelim2 }}
-        <a title="Site map" href="{{ pathto('genindex') }}">Index</a>
+        {% if project == "NAO Software" %}
+        {{ reldelim2 }}
+        <a title="Site map" href="{{ pathto('contents') }}">Site map</a>
+        {% endif %}
+        {{ reldelim2 }}
+        <a title="Search" href="{{ pathto('search') }}">Search</a>
+        {{ reldelim2 }}
+        <a title="Index" href="{{ pathto('genindex') }}">Index</a>
+        {% if project == "qiBuild" %}
+        {{ reldelim2 }}
+        <a title="CMake index" href="{{ pathto('cmake-functions-index') }}">CMake index</a>
+        {{ reldelim2 }}
+        <a title="Python index" href="{{ pathto('py-modindex') }}">Python index</a>
+        {% endif %}
         {% if project != "NAO Software" %}
         {{ reldelim2 }}
         <a title="Back to main doc"
