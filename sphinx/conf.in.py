@@ -16,9 +16,11 @@ extensions = ["sphinx.ext.pngmath",
               "sphinx.ext.intersphinx",
               "doxylink"]
 
+exclude_patterns=["family/bulk/*"]
 sys.path.insert(0, os.path.abspath("tools/doxylink"))
 doxylink = {doxylink}
 intersphinx_mapping = {intersphinx_mapping}
+exclude_patterns = ["**bulk"]
 
 # Useful when building internal doc,
 # we should remove that when building
