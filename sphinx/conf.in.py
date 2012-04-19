@@ -26,6 +26,7 @@ exclude_patterns = ["**bulk"]
 # we should remove that when building
 # official doc
 nitpicky=True
+nitpick_ignore = [('naoqi:type', 'std::string')]
 keep_warnings=True
 html_show_source_link=True
 todo_include_todos=True
