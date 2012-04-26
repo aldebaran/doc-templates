@@ -344,7 +344,7 @@ dl.memkey tt.descname, tt.naoqi-memkey span.pre {
 }
 
 tt.naoqi-memkey span.pre:hover {
-  color: white;
+  color: green;
 }
 
 dl.memkey tt.descname:before, tt.naoqi-memkey span.pre:before {
