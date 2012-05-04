@@ -7,9 +7,11 @@ release = "{version}"
 master_doc = 'index'
 pygments_style="sphinx"
 
-html_theme_path = ["_themes"]
+html_theme_path = ["{themes_path}"]
 html_theme="djangodocs"
 html_use_index = True
+
+sys.path.insert(0, "{ext_path}")
 
 extensions = ["sphinx.ext.pngmath",
               "sphinx.ext.todo",
