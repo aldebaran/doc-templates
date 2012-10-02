@@ -6,7 +6,6 @@ SORT_GROUP_NAMES       = YES
 SORT_BY_SCOPE_NAME     = YES
 SHOW_NAMESPACES        = YES
 RECURSIVE              = YES
-EXCLUDE                = src
 EXCLUDE_PATTERNS       = */detail/* */examples/*
 EXCLUDE_SYMBOLS        = *detail::*
 SOURCE_BROWSER         = YES
@@ -28,3 +27,6 @@ GRAPHICAL_HIERARCHY    = NO
 DOT_MULTI_TARGETS      = YES
 GENERATE_TAGFILE       = {GENERATE_TAGFILE}
 TAGFILES               = {TAGFILES}
+ALIASES                = rst="\verbatim"
+ALIASES               += endrst="\endverbatim"
+ALIASES               += includename{{1}}="\xmlonly <includename>\1</includename> \endxmlonly"
