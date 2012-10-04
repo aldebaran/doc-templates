@@ -18,12 +18,12 @@ dl.function-index dt tt {
     padding: 0 3px;
 }
 
-dl.function-index dt span {
-    width: 30%;
+dl.function-index dt > span {
+    width: 35%;
     display: inline-block;
     text-align: right;
 }
 
-dl.function-index dt tt:first-child {
-    padding: 0px 10px;
+.cpp-func {
+    font-weight: normal;
 }
