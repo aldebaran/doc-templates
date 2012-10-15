@@ -27,6 +27,5 @@ GRAPHICAL_HIERARCHY    = NO
 DOT_MULTI_TARGETS      = YES
 GENERATE_TAGFILE       = {GENERATE_TAGFILE}
 TAGFILES               = {TAGFILES}
-ALIASES                = rst="\verbatim"
-ALIASES               += endrst="\endverbatim"
-ALIASES               += includename{{1}}="\xmlonly <includename>\1</includename> \endxmlonly"
+ALIASES                = includename{{1}}="\xmlonly <includename>\1</includename> \endxmlonly"
+QUIET                  = YES
