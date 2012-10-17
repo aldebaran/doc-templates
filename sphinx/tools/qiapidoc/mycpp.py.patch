@@ -1,3 +1,11 @@
+sphinx-master was on commit 3682:d4c6ac1fcc9c by Jon Waltman dating of
+Sun Sep 16 01:08:47 2012 -0500. Commit message was:
+
+Closes #617: Fix docstring preparation without included signature: only ignore
+indentation of one line, not two.
+
+Repository can be found on https://bitbucket.org/birkenfeld/sphinx/overview
+
 --- /home/fmichea/sphinx-master/sphinx/domains/cpp.py	2012-10-01 17:00:44.932830733 +0200
 +++ mycpp.py	2012-10-15 17:46:05.028007287 +0200
 @@ -5,23 +5,23 @@
