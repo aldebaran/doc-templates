@@ -1,5 +1,5 @@
 from qiapidoc.mycpp import DefinitionParser
-from qiapidoc.datas.docparser import DocParser
+from qiapidoc.data.docparser import DocParser
 from qiapidoc.extendedclasses import *
 
 class CPPFunction(DocFuncDefExpr, DocParser):

@@ -1,4 +1,4 @@
-from qiapidoc.datas.docparser import DocParser
+from qiapidoc.data.docparser import DocParser
 from qiapidoc.extendedclasses import CPPDocumentedObject
 
 class CPPTypedef(DocParser, CPPDocumentedObject):

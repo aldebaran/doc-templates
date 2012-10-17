@@ -1,6 +1,6 @@
 import re
 
-from qiapidoc.datas.docparser import DocParser
+from qiapidoc.data.docparser import DocParser
 from qiapidoc.extendedclasses import CPPDocumentedObject
 
 _VALUE_BEGIN = re.compile(r'^\s*=\s*')

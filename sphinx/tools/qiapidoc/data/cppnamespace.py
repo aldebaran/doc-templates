@@ -1,6 +1,4 @@
-import qiapidoc.datas.types
-
-from qiapidoc.datas.hppfile import HPPFile
+from qiapidoc.data.hppfile import HPPFile
 from qiapidoc.extendedclasses import CPPDocumentedObject
 
 class CPPNamespace(HPPFile, CPPDocumentedObject):

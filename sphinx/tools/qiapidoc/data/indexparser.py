@@ -1,12 +1,12 @@
 import os
 import sys
 
-import qiapidoc.datas.rootparser
-import qiapidoc.datas.types
+import qiapidoc.data.rootparser
+import qiapidoc.data.types
 
 from xml.etree import ElementTree as etree
 
-class IndexParser(qiapidoc.datas.rootparser.RootParser):
+class IndexParser(qiapidoc.data.rootparser.RootParser):
     def parse_index(self):
         path = self._filepath('index.xml')
         if not os.path.exists(path):
@@ -16,7 +16,7 @@ class IndexParser(qiapidoc.datas.rootparser.RootParser):
         self.parse(tree.getroot())
 
     def _parse_compound(self, element):
-        obj = qiapidoc.datas.types.parse_type(self._root, self.objs, element)
+        obj = qiapidoc.data.types.parse_type(self._root, self.objs, element)
         if obj is None:
             return
         self._set_objs(obj)

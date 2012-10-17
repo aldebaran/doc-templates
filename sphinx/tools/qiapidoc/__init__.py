@@ -7,7 +7,7 @@ from sphinx.directives import ObjectDescription
 from sphinx.domains import Index
 from sphinx.util.compat import Directive
 
-import datas.indexparser
+import data.indexparser
 
 
 '''
@@ -665,7 +665,7 @@ class CPPAPIDocDomain(MyCPPDomain):
         self.data['doxygen_objs'] = dict()
         xml_src = self.env.app.config.qiapidoc_srcs
         if xml_src is not None:
-            parser = datas.indexparser.IndexParser(xml_src)
+            parser = data.indexparser.IndexParser(xml_src)
             parser.parse_index()
             for obj in parser.objs.values():
                 if obj.get_obj():

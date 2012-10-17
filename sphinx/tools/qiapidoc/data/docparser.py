@@ -1,7 +1,7 @@
 import re
 
 from qiapidoc.mycpp import DefinitionParser
-from qiapidoc.datas.rootparser import RootParser
+from qiapidoc.data.rootparser import RootParser
 
 class DocParser(RootParser):
     def __init__(self, *args, **kwargs):

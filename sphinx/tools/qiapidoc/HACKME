@@ -185,7 +185,7 @@ Example: (not an actual doxygen output)
         </compound>
     </root>
 
-You are a class that inherits from RootParser and was called (parse) on
+You are a class that inherits from RootParser and was called (`parse()`) on
 compound. This means that you basically implements `_parse_name` if you want to
 parse the name element, `_parse_detaileddescription` if you want to parse
 detailed description etc. These functions take the element as a parameter.
@@ -195,7 +195,7 @@ RootParser and implement `_parse_detaileddescription` and
 `_parse_briefdescription`. It also gets the definition of almost anything (XML
 has a "simple" structure). It is useful if you want to parse a compound.
 
-In `datas/types.py`, you will find a dispatcher for all types of compounds
+In `data/types.py`, you will find a dispatcher for all types of compounds
 currently understood by qiapidoc.
 
 Finally, each "thing" parser (CPPClass, CPPFunction, ...) inherits of classes

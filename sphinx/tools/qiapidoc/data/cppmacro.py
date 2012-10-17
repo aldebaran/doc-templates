@@ -1,5 +1,5 @@
 from qiapidoc.extendedclasses import CPPDocumentedObject
-from qiapidoc.datas.docparser import DocParser
+from qiapidoc.data.docparser import DocParser
 
 class CPPMacro(DocParser, CPPDocumentedObject):
     def __init__(self, root, objs):

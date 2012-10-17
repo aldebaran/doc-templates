@@ -1,6 +1,6 @@
-import qiapidoc.datas.types
+import qiapidoc.data.types
 
-from qiapidoc.datas.docparser import DocParser
+from qiapidoc.data.docparser import DocParser
 from qiapidoc.extendedclasses import CPPDocumentedObject
 
 class InnerClassOrNamespace:
@@ -44,7 +44,7 @@ class HPPFile(DocParser, CPPDocumentedObject):
             InnerClassOrNamespace(element.text, element.attrib['refid']))
 
     def _parse_memberdef(self, element):
-        obj = qiapidoc.datas.types.parse_type(self._root, self.objs, element)
+        obj = qiapidoc.data.types.parse_type(self._root, self.objs, element)
         if obj is None:
             return
         self._set_objs(obj)

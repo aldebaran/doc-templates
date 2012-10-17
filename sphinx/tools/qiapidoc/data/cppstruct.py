@@ -1,4 +1,4 @@
-from qiapidoc.datas.cppclass import CPPClass
+from qiapidoc.data.cppclass import CPPClass
 
 class CPPStruct(CPPClass):
     def __init__(self, *args, **kwargs):

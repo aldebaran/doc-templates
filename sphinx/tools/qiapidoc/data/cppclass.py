@@ -1,8 +1,8 @@
-import qiapidoc.datas.types
+import qiapidoc.data.types
 
-from qiapidoc.datas.cppfunction import CPPFunction
-from qiapidoc.datas.cppvariable import CPPVariable
-from qiapidoc.datas.docparser import DocParser
+from qiapidoc.data.cppfunction import CPPFunction
+from qiapidoc.data.cppvariable import CPPVariable
+from qiapidoc.data.docparser import DocParser
 from qiapidoc.extendedclasses import *
 from qiapidoc.mycpp import DefinitionParser
 
@@ -40,7 +40,7 @@ class CPPClass(DocClassDefExpr, DocParser):
         self.parse(element)
 
     def _parse_memberdef(self, element):
-        obj = qiapidoc.datas.types.parse_type(self._root, self.objs, element)
+        obj = qiapidoc.data.types.parse_type(self._root, self.objs, element)
         if obj is None:
             return
         self._set_objs(obj)

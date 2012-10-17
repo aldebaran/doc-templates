@@ -1,6 +1,6 @@
 import sys
 
-from qiapidoc.datas.docparser import DocParser
+from qiapidoc.data.docparser import DocParser
 from qiapidoc.extendedclasses import DocMemberObjDefExpr
 from qiapidoc.mycpp import NameDefExpr, DefinitionParser
 
