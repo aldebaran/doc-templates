@@ -1,6 +1,7 @@
 import re
+import sys
 
-from qiapidoc.mycpp import DefinitionParser
+from qiapidoc.mycpp import DefinitionParser, DefinitionError
 from qiapidoc.data.rootparser import RootParser
 
 class DocParser(RootParser):
@@ -83,8 +84,13 @@ class DocParser(RootParser):
             self._definition += element.text
 
     def get_obj(self):
-        _def = DefinitionParser(self._definition)
-        self.copy_obj(self._get_def_function()(_def))
+        try:
+            _def = DefinitionParser(self._definition)
+            self.copy_obj(self._get_def_function()(_def))
+        except DefinitionError:
+            print >> sys.stderr, 'Could not parse following doxygen',
+            print >> sys.stderr, 'definition:', self._definition
+            return False
         return True
 
     def _get_def_function(self):
