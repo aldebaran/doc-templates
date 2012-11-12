@@ -732,22 +732,22 @@ class CPPAPIDocDomain(MyCPPDomain):
 - :doc:`/cpp-funcindex`
 ''')
 
-        with open(os.path.join(root, 'cpp-funcindex.rst') as f:
+        with open(os.path.join(root, 'cpp-funcindex.rst'), 'w') as f:
             f.write('''.. _cpp-funcindex:
 
 C++ Function Index
 ==================
 
 will be overrided
-'''-
-        with open(os.path.join(root, 'cpp-classindex.rst') as f:
+''')
+        with open(os.path.join(root, 'cpp-classindex.rst'), 'w') as f:
             f.write('''.. _cpp-classindex:
 
 C++ Class Index
 ===============
 
 will be overrided
-'''
+''')
 
     def resolve_xref(self, env, fromdocname, builder, typ, target, node, contnode):
         res = MyCPPDomain.resolve_xref(self, env, fromdocname, builder, typ,
