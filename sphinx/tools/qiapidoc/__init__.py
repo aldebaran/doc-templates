@@ -701,8 +701,20 @@ class CPPAPIDocDomain(MyCPPDomain):
     *
 '''.format(dirs[sorting_type].title(), '-' * len(dirs[sorting_type])))
         _mkdir()
-        for path in dirs.values():
-            _mkdir(path)
+        sdirs = dict((a, False) for a in dirs.iterkeys())
+        for obj in self.data['doxygen_objs'].values():
+            if not obj.is_documented() or obj.sorting_type not in dirs:
+                continue
+            sdirs[obj.sorting_type] = True
+            _mkdir(dirs[obj.sorting_type])
+            _gen_index(obj.sorting_type)
+            path = os.path.join(root, dirs[obj.sorting_type], obj.rst_name())
+            if os.path.exists(path):
+                continue
+            with open(path, 'w') as f:
+                content = '.. cpp:auto{}:: {}\n'.format(
+                    obj.sorting_type, obj.get_name())
+                f.write(content)
         with open(os.path.join(root, 'index.rst'), 'w') as f:
             f.write('''API
 ---
@@ -710,26 +722,32 @@ class CPPAPIDocDomain(MyCPPDomain):
 .. toctree::
     :maxdepth: 2
 
-    classes/index
-    headers/index
-    namespaces/index
-    structures/index
+''')
+            for key, value in sorted(sdirs.iteritems()):
+                if value:
+                    f.write('    {}/index\n'.format(dirs[key]))
+            f.write('''
 
 - :doc:`/cpp-classindex`
 - :doc:`/cpp-funcindex`
 ''')
-        for obj in self.data['doxygen_objs'].values():
-            if not obj.is_documented() or obj.sorting_type not in dirs:
-                continue
-            path = os.path.join(root, dirs[obj.sorting_type], obj.rst_name())
-            _gen_index(obj.sorting_type)
-            if os.path.exists(path):
-                continue
-            with open(path, 'w') as f:
-                content = '.. cpp:auto{}:: {}\n'.format(
-                    obj.sorting_type, obj.get_name())
-                f.write(content)
 
+        with open(os.path.join(root, 'cpp-funcindex.rst') as f:
+            f.write('''.. _cpp-funcindex:
+
+C++ Function Index
+==================
+
+will be overrided
+'''-
+        with open(os.path.join(root, 'cpp-classindex.rst') as f:
+            f.write('''.. _cpp-classindex:
+
+C++ Class Index
+===============
+
+will be overrided
+'''
 
     def resolve_xref(self, env, fromdocname, builder, typ, target, node, contnode):
         res = MyCPPDomain.resolve_xref(self, env, fromdocname, builder, typ,
