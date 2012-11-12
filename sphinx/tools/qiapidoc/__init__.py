@@ -1,4 +1,5 @@
 import os
+import re
 
 from docutils import nodes
 from docutils.statemachine import StringList
@@ -748,8 +749,8 @@ class CPPAPIDocDomain(MyCPPDomain):
         return res
 
 def env_get_outdated(app, env, added, changed, removed):
-    # FIXME: Find something better.
-    return [it for it in app.env.all_docs if 'api/' in it]
+    qfile = re.compile('^(index|cpp-.*|headers|classes|namespaces|structures)')
+    return [it for it in app.env.all_docs if qfile.match(it) is not None]
 
 def env_purge_doc(app, env, docname):
     app.env.domains['cpp'].parse_doxygen()
