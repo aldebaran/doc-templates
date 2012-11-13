@@ -42,12 +42,41 @@ class DocParser(RootParser):
             lst.extend(res)
 
     def _parse_verbatim(self, element):
-        res = []
-        for line in element.text.splitlines():
-            if line.startswith('* ') or line == '*':
-                line = line[2:]
-            res.append(line)
-        element.text = '\n'.join(res)
+        # This part needs some explaination I guess. When using \verbatim, even
+        # stars in the C++ comment are kept (I mean the stars used to align
+        # comment). We need to delete them, since they are not part of the text
+        # the user wrote.
+        #
+        # The two list comprehensions give a list of the characters present in
+        # the verbatim block by column. Example:
+        #
+        #   This is the first sentence in verbatim block.
+        #   Second sentence is there.
+        #
+        # Will give the following characters list: [['T', 'S'], ['h', 'e'], ...]
+        # with only each character once (still by column). When this is done,
+        # we just have to calculate the longuest prefix (if there is one
+        # character in the list, every line begins with the same character) and
+        # then we check that the first real character is *. If it is the case,
+        # we probably have the stars of the C++ comment. This can fail if the
+        # detailed description only conatins a list, and doesn't use aligned
+        # stars in its comment. Should we set a rule on this to be sure?
+        lines = element.text.splitlines()
+        characters = [list(line.ljust(10000)) for line in lines]
+        characters = [list(set(l)) for l in zip(*characters)]
+        tmp = ''
+        try:
+            while len(characters[0]) == 1:
+                tmp += characters[0][0]
+                del characters[0]
+        except IndexError:
+            pass
+        try:
+            if tmp.split()[0] == '*':
+                lines = [line.lstrip()[2:] for line in lines]
+        except IndexError:
+            pass
+        element.text = '\n'.join(lines)
 
     def _in_detaileddescription(self):
         return ('detaileddescription' in self._backtrace)
