@@ -1,8 +1,11 @@
 import re
+import string
 import sys
 
 from qiapidoc.mycpp import DefinitionParser, DefinitionError
 from qiapidoc.data.rootparser import RootParser
+
+_WORD = re.compile('^\w+$')
 
 class DocParser(RootParser):
     def __init__(self, *args, **kwargs):
@@ -88,25 +91,69 @@ class DocParser(RootParser):
         self._definition += self._get_fulltext(element)
 
     def _parse_definition(self, element):
-        def sublist_pos(a, b):
-            len_a = len(a)
-            for it in xrange(len(b) - len_a + 1):
-                if b[it:it + len_a] == a:
-                    return it
-            return -1
-        def split_tokens(definition):
-            tmp = [it.strip() for it in re.split('(\w+)', definition)]
-            return [''.join(it.split()) for it in tmp
-                    if it and 'API' not in it]
-        definition = split_tokens(element.text)
-        cur_def = split_tokens(self._definition)
-        it = sublist_pos(cur_def, definition)
-        if it != -1:
-            definition = definition[it + len(cur_def):]
-        self._definition += u' ' + u' '.join(definition)
-        tmp = self._definition.split('::')
-        self._definition = u'::'.join([it.strip() for it in tmp])
-        self._definition = self._definition.replace('~ ', '~')
+        # XXX: This function targets common cases. It could break on some
+        #      stuff. If sphinx complains that it cannot parse some definition
+        #      and the type is present twice in it, you should check here. If
+        #      you find some function in documentation with return type removed,
+        #      you should check here.
+        #
+        # This part also needs detailed description :( Doxygen has a weird
+        # behavior with definition element. Sometimes it contains only the name
+        # of the compound documented, and sometimes it also contains the type
+        # (already defined and parsed in type element).
+        #
+        # This means that we need to search for the type in the definition.
+        # Could be easy, if it was at the beginning with the same layout BUT:
+        #  - Spacing can be completely different.
+        #  - Type can be written differently in definition and in type
+        #    (namespaces in one of them, static, ...)
+        #  - Return type can be found in function name....................
+        #    (T qi::atomic<T>::operator)
+        #
+        # First split_tokens is there to split the definition and the type into
+        # tokens (either words or special characters ('::' fives [':', ':']).
+        # It also escapes everything between two <> so that types in there
+        # won't be matched.
+        #
+        # Once done, we try to find type in definition. If it is there, we
+        # reset definition to '' to avoid having two types and this is done.
+        def is_word(word):
+            return _WORD.match(word) is not None
+        def sublist_in_list(sublst, lst):
+            len_sublst = len(sublst)
+            for it in xrange(len(lst) - len_sublst + 1):
+                if lst[it:it + len_sublst] == sublst:
+                    return True
+            return False
+        def split_tokens(def_):
+            # Split words and the rest of the world. Also strips and splits the
+            # result. Once done, we have a list of lists containing either a
+            # word or a list of special characters split on spaces:
+            # Example:
+            #   String 'QI_API word lala* foo::a<f** >::q'
+            #   Gives [['QI_API'], ['word'], ['lala'], ['*'], ['foo'], ['::'],
+            #          ['a'], ['<'], ['f'], ['**', '>::'], ['q']]
+            toks = [it.strip().split() for it in re.split('(\w+)', def_) if it.strip()]
+            # This line removes removes _API defines from definition.
+            #   Gives [[], ['word'], ['lala'], ['*'], ['foo'], ['::'], ['a'],
+            #          ['<'], ['f'], ['**', '>::'], ['q']]
+            toks = [[it_ for it_ in it if 'API' not in it_] for it in toks]
+            # This line splits special characters in one token by character.
+            #   Gives [['word'], ['lala'], ['*'], ['foo'], [':', ':'], ['a'],
+            #          ['<'], ['f'], ['*', '*'], ['>', ':', ':'], ['q']]
+            toks = [[it] if is_word(it) else list(it) for it in sum(toks, [])]
+            # Then we remove every token between <> (included).
+            #   Gives ['word', 'lala', '*', 'foo', ':', ':', 'a', ':', ':', 'q']
+            tmp, toks_tmp, toks = 0, sum(toks, []), []
+            for tok in toks_tmp:
+                if tok == '<': tmp += 1
+                elif tok == '>': tmp -= 1
+                elif not tmp: toks.append(tok)
+            return toks
+        tmp = [split_tokens(self._definition), split_tokens(element.text)]
+        if sublist_in_list(*tmp):
+            self._definition = u''
+        self._definition += u' ' + element.text
 
     def _parse_argsstring(self, element):
         if element.text is not None:
