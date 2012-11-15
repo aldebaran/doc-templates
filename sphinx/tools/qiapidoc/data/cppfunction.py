@@ -41,7 +41,7 @@ class CPPFunction(DocFuncDefExpr, DocParser):
         self.parse(element)
 
     def _parse_parametername(self, element):
-        self.cur_param = element.text
+        self.cur_param = self._get_fulltext(element)
         self.param_ways['param_' + self.cur_param] = element.attrib.get('direction', None)
 
     def _parse_parameterdescription(self, element):

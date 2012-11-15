@@ -575,6 +575,7 @@ class DefinitionParser(object):
         'const':        None,
         'typename':     None,
         'struct':       None,
+        'enum':         None,
         'unsigned':     set(('char', 'short', 'int', 'long')),
         'signed':       set(('char', 'short', 'int', 'long')),
         'short':        set(('int',)),
