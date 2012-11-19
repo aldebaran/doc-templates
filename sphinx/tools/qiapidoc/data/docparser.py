@@ -108,7 +108,7 @@ class DocParser(RootParser):
         #  - Type can be written differently in definition and in type
         #    (namespaces in one of them, static, ...)
         #  - Return type can be found in function name....................
-        #    (T qi::atomic<T>::operator)
+        #    (T qi::Atomic<T>::operator)
         #
         # First split_tokens is there to split the definition and the type into
         # tokens (either words or special characters ('::' fives [':', ':']).
