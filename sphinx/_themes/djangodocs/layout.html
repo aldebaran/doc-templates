@@ -35,6 +35,18 @@
   {%- endif %}
 {%- endmacro %}
 
+{% block extrahead %}
+{{ super() }}
+<script>
+$(window).ready(function () {
+    var width_label = 0;
+    $('dl.function-index dt > span').each(function () {
+        $(this).css('width', 'auto');
+        width_label = Math.max(width_label, $(this).width());
+    }).width(width_label + 30);
+})
+</script>
+{% endblock %}
 
 {% block document %}
   <div id="custom-doc" class="{% block bodyclass %}{{ 'yui-t3' if pagename != 'index' else '' }}{% endblock %}">
