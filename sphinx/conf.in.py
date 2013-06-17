@@ -30,6 +30,8 @@ nitpick_ignore = [('naoqi:type', 'std::string')]
 
 build_type = os.environ.get("build_type")
 
+html_theme_options = dict()
+
 if build_type == "release":
     html_show_source_link=False
     html_copy_source=False
@@ -40,6 +42,8 @@ else:
     html_copy_source=True
     keep_warnings=True
     todo_include_todos=True
+
+html_theme_options['build_type'] = build_type
 
 def setup(app):
     app.add_config_value("build_type", "internal", True)

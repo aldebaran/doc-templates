@@ -45,7 +45,13 @@ $(window).ready(function () {
         width_label = Math.max(width_label, $(this).width());
     }).width(width_label + 30);
 })
+
 </script>
+
+{% if theme_build_type == "release"%}
+<script type="text/javascript" src="/static/js/ga-status.js"></script>
+{% endif %}
+
 {% endblock %}
 
 {% block document %}
