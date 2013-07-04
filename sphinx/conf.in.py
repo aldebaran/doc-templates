@@ -14,7 +14,7 @@ html_use_index = True
 extensions = ["sphinx.ext.pngmath",
               "sphinx.ext.todo",
               "sphinx.ext.intersphinx",
-              "sphinx.ext.ifconfig",
+              "sphinx.ext.ifconfig"]
 
 exclude_patterns=["family/bulk/*"]
 sys.path.insert(0, os.path.abspath("tools/doxylink"))
