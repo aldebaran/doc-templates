@@ -1,1 +1,3 @@
-<project name="aldeb-templates" template_repo="true" />
+<project version="3">
+  <qidoc type="template" />
+</project>
