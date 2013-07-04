@@ -7,22 +7,17 @@ release = "{version}"
 master_doc = 'index'
 pygments_style="sphinx"
 
-html_theme_path = ["{themes_path}"]
 html_theme="djangodocs"
 html_use_index = True
 
-sys.path.insert(0, "{ext_path}")
 
 extensions = ["sphinx.ext.pngmath",
               "sphinx.ext.todo",
               "sphinx.ext.intersphinx",
               "sphinx.ext.ifconfig",
-              "doxylink"]
 
 exclude_patterns=["family/bulk/*"]
 sys.path.insert(0, os.path.abspath("tools/doxylink"))
-doxylink = {doxylink}
-intersphinx_mapping = {intersphinx_mapping}
 exclude_patterns = ["**bulk"]
 
 nitpicky=True
