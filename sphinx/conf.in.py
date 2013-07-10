@@ -34,9 +34,13 @@ extensions = ["sphinx.ext.pngmath",
               "sphinx.ext.ifconfig",
               "qiapidoc",
               "naoqi",
-              #"cppwithparams", # causes sphinx to fail
               "extendcpp",
              ]
+
+# Adding "cppwithparams"  causes sphinx to fail
+# lib/python2.7/site-packages/sphinx/application.py", line 413, in override_domain
+#    'domain' % domain.name)
+# TypeError: not all arguments converted during string formatting
 
 exclude_patterns=["family/bulk/*"]
 exclude_patterns = ["**bulk"]
