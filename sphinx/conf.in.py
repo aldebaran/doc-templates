@@ -1,5 +1,8 @@
 import os
 import sys
+from qisys import ui
+import qisys.worktree
+
 source_suffix = '.rst'
 copyright = u'2011-2012, Aldebaran Robotics'
 version = "{version}"
@@ -11,13 +14,31 @@ html_theme="djangodocs"
 html_use_index = True
 
 
+
+def setup_tools():
+    this_dir = os.path.basename(__file__)
+    worktree_root = qisys.worktree.guess_worktree(raises=False)
+    if not worktree_root:
+        return
+    worktree = qisys.worktree.WorkTree(worktree_root)
+    tools_proj = worktree.get_project("doc/tools", raises=False)
+    if not tools_proj:
+        return
+    if not tools_proj.path in sys.path:
+        sys.path.insert(0, tools_proj.path)
+
+setup_tools()
 extensions = ["sphinx.ext.pngmath",
               "sphinx.ext.todo",
               "sphinx.ext.intersphinx",
-              "sphinx.ext.ifconfig"]
+              "sphinx.ext.ifconfig",
+              "qiapidoc",
+              "naoqi",
+              #"cppwithparams", # causes sphinx to fail
+              "extendcpp",
+             ]
 
 exclude_patterns=["family/bulk/*"]
-sys.path.insert(0, os.path.abspath("tools/doxylink"))
 exclude_patterns = ["**bulk"]
 
 nitpicky=True
