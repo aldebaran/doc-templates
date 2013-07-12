@@ -32,7 +32,6 @@ extensions = ["sphinx.ext.pngmath",
               "sphinx.ext.todo",
               "sphinx.ext.intersphinx",
               "sphinx.ext.ifconfig",
-              "qiapidoc",
               "naoqi",
               "extendcpp",
              ]
@@ -41,6 +40,14 @@ extensions = ["sphinx.ext.pngmath",
 # lib/python2.7/site-packages/sphinx/application.py", line 413, in override_domain
 #    'domain' % domain.name)
 # TypeError: not all arguments converted during string formatting
+
+# Adding qisapidoc causes sphinx to fail when
+# building qibuild doc:
+# file "qiapidoc/__init__.py", line 610, in generate
+# for refname, (docname, type, theid) in self.domain.data['objects'].iteritems():
+# ValueError: need more than 2 values to unpack
+# I think there's a domain conflict or something
+
 
 exclude_patterns=["family/bulk/*"]
 exclude_patterns = ["**bulk"]
