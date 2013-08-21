@@ -18,14 +18,10 @@ HTML_STYLESHEET        = doxygen.css
 GENERATE_TREEVIEW      = NO
 CLASS_DIAGRAMS         = NO
 HAVE_DOT               = YES
-DOT_FONTNAME           = FreeSans
 CLASS_GRAPH            = NO
 COLLABORATION_GRAPH    = NO
 INCLUDE_GRAPH          = NO
 INCLUDED_BY_GRAPH      = NO
 GRAPHICAL_HIERARCHY    = NO
 DOT_MULTI_TARGETS      = YES
-GENERATE_TAGFILE       = {GENERATE_TAGFILE}
-TAGFILES               = {TAGFILES}
-ALIASES                = includename{{1}}="\xmlonly <includename>\1</includename> \endxmlonly"
-QUIET                  = {QUIET}
+ALIASES                = includename{1}="\xmlonly <includename>\1</includename> \endxmlonly"
