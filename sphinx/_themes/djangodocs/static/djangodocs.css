@@ -1,16 +1,16 @@
 /*** setup ***/
-html { background:#0A3A5B;}
-body { font:12px/1.5 Verdana,sans-serif; background:#0A3A5B; color: white;}
+html { background:#ece8dd;}
+body { font:12px/1.5 Verdana,sans-serif; background:#ece8dd; color: white;}
 #custom-doc { min-width:640px; width:95%; margin:auto; text-align:left; padding-top:16px; margin-top:0;}
 #hd { padding: 4px 0 12px 0; }
-#bd { background:#096DAD; }
+#bd { background:#7a766e; }
 #ft { color:#487858; font-size:90%; padding-bottom: 2em; }
 
 /*** links ***/
 a {text-decoration: none;}
 a:hover {text-decoration: underline;}
 a img {border: none;}
-a:link, a:visited { color:#aeaeae; }
+a:link, a:visited { color:#7A766E; }
 #bd a:link, #bd a:visited { color:#096DAD;  }
 #bd #sidebar a:link, #bd #sidebar a:visited { color:#fff; }
 a:hover { color:#a1d6f5; }
@@ -30,12 +30,12 @@ a.reference em { font-style: normal; }
 a.current.reference.internal { font-weight: bold; }
 
 /*** nav ***/
-div.nav { margin: 0; font-size: 11px; text-align: right; color: #FFFFFF;}
+div.nav { margin: 0; font-size: 11px; text-align: right; color: #000000;}
 #hd div.nav { margin-top: -27px; }
 #ft div.nav { margin-bottom: -18px; }
-#hd h1 a { color: white; }
+#hd h1 a { color: #000000; }
 #hd h1 { font-size:150%; margin-top: 15px; }
-#global-nav { position:absolute; top:5px; margin-left: -5px; padding:7px 0; color:#FFFFFF; }
+#global-nav { position:absolute; top:5px; margin-left: -5px; padding:7px 0; color:#000000; }
 #global-nav a {padding:0 4px;}
 #global-nav a.about {padding-left:0;}
 #global-nav a:hover, .nav a:hover {color: #000;}
@@ -301,7 +301,7 @@ dl.function dt, dl.function dt, dl.event dt, dl.event dt {
 /* Method name */
 dl.function tt.descname, dl.event tt.descname, dl.memkey tt.descname {
   /* font-family: "Trebuchet MS", sans-serif; */
-  color: #0A3A5B; font-weight:bold;
+  color: #7a766e; font-weight:bold;
 }
 
 /* brackets */
@@ -336,7 +336,7 @@ dl.function td, dl.function th, dl.event td, dl.event th {padding: 0px;}
 
 dl.memkey tt.descname, dl.event tt.descname, dl.memkey tt.descname {
   /* font-family: "Trebuchet MS", sans-serif; */
-  color: #0A3A5B; font-weight:bold;
+  color: #7a766e; font-weight:bold;
 }
 
 dl.memkey tt.descname, tt.naoqi-memkey span.pre {
