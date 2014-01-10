@@ -74,7 +74,7 @@ $(window).ready(function () {
         {{ reldelim2 }}
         <a title="Python index" href="{{ pathto('py-modindex') }}">Python index</a>
         {% endif %}
-        {% if project != "NAO Software" %}
+        {% if project != "NAO Software" and project != 'qiBuild' %}
         {{ reldelim2 }}
         <a title="Back to main doc"
             href="{{ pathto('../index') }}"> Back to NAO Software Documentation </a>
