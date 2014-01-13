@@ -37,6 +37,7 @@
 
 {% block extrahead %}
 {{ super() }}
+<script type="text/javascript" src="https://community.aldebaran-robotics.com/static/js/include_doc.js"></script>
 <script>
 $(window).ready(function () {
     var width_label = 0;
@@ -47,10 +48,6 @@ $(window).ready(function () {
 })
 
 </script>
-
-{% if theme_build_type == "release"%}
-<script type="text/javascript" src="/static/js/ga-status.js"></script>
-{% endif %}
 
 {% endblock %}
 
