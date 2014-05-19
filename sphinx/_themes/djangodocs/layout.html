@@ -59,7 +59,13 @@ $(window).ready(function () {
         <a title="Home page" href="{{ pathto('index') }}">Home</a>
         {% if project == "NAO Software" %}
         {{ reldelim2 }}
-        <a title="Site map" href="{{ pathto('contents') }}">Site map</a>
+        <a title="Site map" href="{{ pathto('home_nao') }}">NAO</a>
+        {{ reldelim2 }}
+        <a title="Site map" href="{{ pathto('home_romeo') }}">Romeo</a>
+        {{ reldelim2 }}
+        <a title="Site map" href="{{ pathto('home_juliette') }}">Juliet</a>
+        {{ reldelim2 }}
+       <a title="Site map" href="{{ pathto('contents') }}">Site map</a>
         {% endif %}
         {{ reldelim2 }}
         <a title="Search" href="{{ pathto('search') }}">Search</a>
