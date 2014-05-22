@@ -57,7 +57,7 @@ $(window).ready(function () {
       <h1><a href="{{ pathto('index') }}">{{ docstitle }}</a></h1>
       <div id="global-nav">
         <a title="Home page" href="{{ pathto('index') }}">Home</a>
-        {% if project == "NAO Software" %}
+        {% if project == "Aldebaran Software" %}
         {{ reldelim2 }}
         <a title="Site map" href="{{ pathto('home_nao') }}">NAO</a>
         {{ reldelim2 }}
@@ -77,10 +77,10 @@ $(window).ready(function () {
         {{ reldelim2 }}
         <a title="Python index" href="{{ pathto('py-modindex') }}">Python index</a>
         {% endif %}
-        {% if project != "NAO Software" and project != 'qiBuild' %}
+        {% if project != "Aldebaran Software" and project != 'qiBuild' %}
         {{ reldelim2 }}
         <a title="Back to main doc"
-            href="{{ pathto('../index') }}"> Back to NAO Software Documentation </a>
+            href="{{ pathto('../index') }}"> Back to Aldebaran Software Documentation </a>
         {% endif %}
       </div>
       <div class="nav">{{ secondnav() }}</div>
