@@ -56,14 +56,14 @@ $(window).ready(function () {
     <div id="hd">
       <h1><a href="{{ pathto('index') }}">{{ project }} documentation</a></h1>
       <div id="global-nav">
-        <a title="Home page" href="{{ pathto('index') }}">Home</a>
-        {% if project == "Aldebaran Software" %}
+        <a title="NAOqi Developer guide" href="{{ pathto('index') }}">Home</a>
+        {% if project == "Aldebaran" %}
         {{ reldelim2 }}
-        <a title="Site map" href="{{ pathto('home_nao') }}">NAO</a>
+        <a title="NAO documentation" href="{{ pathto('home_nao') }}">NAO</a>
         {{ reldelim2 }}
-        <a title="Site map" href="{{ pathto('home_romeo') }}">Romeo</a>
+        <a title="Romeo Documentation" href="{{ pathto('home_romeo') }}">Romeo</a>
         {{ reldelim2 }}
-        <a title="Site map" href="{{ pathto('home_juliette') }}">Pepper</a>
+        <a title="Pepper Documentation" href="{{ pathto('home_juliette') }}">Pepper</a>
         {{ reldelim2 }}
        <a title="Site map" href="{{ pathto('contents') }}">Site map</a>
         {% endif %}
@@ -77,10 +77,10 @@ $(window).ready(function () {
         {{ reldelim2 }}
         <a title="Python index" href="{{ pathto('py-modindex') }}">Python index</a>
         {% endif %}
-        {% if project != "Aldebaran Software" and project != 'qiBuild' %}
+        {% if project != "Aldebaran" and project != 'qiBuild' %}
         {{ reldelim2 }}
         <a title="Back to main doc"
-            href="{{ pathto('../index') }}"> Back to Aldebaran Software Documentation </a>
+            href="{{ pathto('../index') }}"> Back to Aldebaran Documentation </a>
         {% endif %}
       </div>
       <div class="nav">{{ secondnav() }}</div>
