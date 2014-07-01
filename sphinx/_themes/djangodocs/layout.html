@@ -54,7 +54,7 @@ $(window).ready(function () {
 {% block document %}
   <div id="custom-doc" class="{% block bodyclass %}{{ 'yui-t3' if pagename != 'index' else '' }}{% endblock %}">
     <div id="hd">
-      <h1><a href="{{ pathto('index') }}">{{ docstitle }}</a></h1>
+      <h1><a href="{{ pathto('index') }}">{{ project }} documentation</a></h1>
       <div id="global-nav">
         <a title="Home page" href="{{ pathto('index') }}">Home</a>
         {% if project == "Aldebaran Software" %}
