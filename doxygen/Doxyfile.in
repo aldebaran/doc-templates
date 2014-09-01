@@ -8,7 +8,6 @@ SHOW_NAMESPACES        = YES
 RECURSIVE              = YES
 EXCLUDE                = src
 EXCLUDE_PATTERNS       = */examples/*
-EXCLUDE_SYMBOLS        = *detail::*
 EXTRACT_ALL            = YES
 SOURCE_BROWSER         = YES
 ALPHABETICAL_INDEX     = NO
