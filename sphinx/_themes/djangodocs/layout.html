@@ -17,7 +17,7 @@
   {%- endif %}
 {%- endmacro %}
 
-
+<!-- Commentaire
 {%- macro footernav() %}
   {%- if prev %}
     &laquo; <a href="{{ prev.link|e }}" title="{{ prev.title|e }}">{{ prev.title }}</a>
@@ -34,7 +34,7 @@
     <a href="{{ next.link|e }}" title="{{ next.title|e }}">{{ next.title }}</a> &raquo;
   {%- endif %}
 {%- endmacro %}
-
+ -->
 {% block extrahead %}
 {{ super() }}
 <script type="text/javascript" src="https://community.aldebaran-robotics.com/static/js/include_doc.js"></script>
@@ -91,7 +91,7 @@ $(window).ready(function () {
           <div class="yui-g" id="{{ pagename|replace('/', '-') }}">
             {% block body %}{% endblock %}
           </div>
-          <div class="footernav">{{ footernav() }}</div>
+          <!-- <div class="footernav">{{ footernav() }}</div> -->
         </div>
       </div>
       {% block sidebarwrapper %}
@@ -124,10 +124,10 @@ $(window).ready(function () {
     </ul>
   {%- endif %}
 
-
+<!-- Commentaire
   <h3>{{ _('Table Of Contents') }}</h3>
   {{ toctree(maxdepth=-1, titles_only=True) }}
-
+-->
   {%- if display_toc %}
     <h3><a href="{{ pathto(master_doc) }}">{{ _('On this page') }}</a></h3>
     {{ toc }}
