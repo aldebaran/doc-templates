@@ -25,3 +25,4 @@ INCLUDED_BY_GRAPH      = NO
 GRAPHICAL_HIERARCHY    = NO
 DOT_MULTI_TARGETS      = YES
 ALIASES                = includename{1}="\xmlonly <includename>\1</includename> \endxmlonly"
+SHORT_NAMES            = YES
